@@ -1,0 +1,161 @@
+/* 🌙 DARK BACKGROUND */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: white;
+}
+
+/* 🧭 LAYOUT */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  padding: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar h2 {
+  color: #a855f7;
+  margin-bottom: 30px;
+}
+
+/* HEADER */
+.header {
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* MAIN CONTENT */
+.main {
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+/* 🧊 GLASS CARD */
+.card {
+  width: 240px;
+  height: 180px;
+  padding: 20px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 
+    0 0 20px rgba(168, 85, 247, 0.3),
+    inset 0 0 10px rgba(255,255,255,0.05);
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 0 30px rgba(168, 85, 247, 0.6),
+    inset 0 0 15px rgba(255,255,255,0.08);
+}
+
+/* ⏱️ TIMER */
+.timer-text {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #9333ea, #a855f7);
+  color: white;
+
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* LOGOUT BUTTON */
+.logout {
+  background: #ef4444;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+/* QUOTE TEXT */
+.quote {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* PROGRESS BOX */
+.progress {
+  width: 300px;
+}
+
+
+
+
+/* MENU ITEM */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  cursor: pointer;
+  color: #cbd5f5;
+
+  transition: all 0.3s ease;
+}
+
+/* ICON */
+.menu-item .icon {
+  display: flex;
+  align-items: center;
+}
+
+/* HOVER EFFECT */
+.menu-item:hover {
+  background: rgba(168, 85, 247, 0.15);
+  color: white;
+  transform: translateX(5px);
+}
+
+/* ACTIVE ITEM */
+.menu-item.active {
+  background: linear-gradient(135deg, #9333ea, #a855f7);
+  color: white;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+}
+
+/* ACTIVE ICON GLOW */
+.menu-item.active .icon {
+  filter: drop-shadow(0 0 6px #a855f7);
+}
+
+
+
