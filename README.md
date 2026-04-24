@@ -34,5 +34,47 @@ Open http://localhost:5173
 
 ## Structure
 ```
-src/
-├── components/     # Sidebar, Header
+focus-booster/
+│
+├── public/
+│   ├── alarm.mp3
+│   ├── Bell.mp3
+│   ├── Beep.mp3
+│   └── icons.svg
+│
+├── src/
+│   ├── auth/
+│   │   ├── Login.jsx
+│   │   └── Signup.jsx
+│   │
+│   ├── components/
+│   │   ├── AICoach.jsx
+│   │   ├── Analytics.jsx
+│   │   ├── Header.jsx
+│   │   ├── Heatmap.jsx
+│   │   ├── Profile.jsx
+│   │   ├── ProgressCard.jsx
+│   │   ├── QuoteCard.jsx
+│   │   ├── Settings.jsx
+│   │   ├── Sidebar.jsx
+│   │   └── TimerCard.jsx
+│   │
+│   ├── server/          👈 (IMPORTANT)
+│   │   └── index.js     👈 Backend API (AI logic)
+│   │
+│   ├── styles/
+│   │   └── global.css
+│   │
+│   ├── utils/
+│   │   └── storage.js
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
