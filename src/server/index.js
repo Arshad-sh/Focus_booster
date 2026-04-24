@@ -1,57 +1,54 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import fetch from "node-fetch";
-
-dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post("/api/ai", async (req, res) => {
+app.post("/api/ai", (req, res) => {
   console.log("🔥 API HIT:", req.body);
 
-  try {
-    const { message } = req.body;
+  const { message } = req.body;
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content: "You are a strict productivity coach. Give short, different advice every time.",
-          },
-          {
-            role: "user",
-            content: message,
-          },
-        ],
-      }),
-    });
-
-    const data = await response.json();
-
-    console.log("🤖 AI RAW:", data);
-
-    const reply = data?.choices?.[0]?.message?.content;
-
-    res.json({
-      reply: reply || "⚠️ AI did not respond",
-    });
-
-  } catch (err) {
-    console.error("❌ SERVER ERROR:", err);
-    res.status(500).json({ reply: "Server error" });
+  if (!message) {
+    return res.json({ reply: "⚠️ Message is required" });
   }
+
+  const text = message.toLowerCase();
+
+  let reply = "";
+
+  // 🎯 Smart fake AI logic
+  if (text.includes("distract")) {
+    reply = "📵 Put your phone in another room. Focus = sacrifice.";
+  } 
+  else if (text.includes("lazy")) {
+    reply = "⚡ Action creates motivation. Start NOW, not later.";
+  } 
+  else if (text.includes("study")) {
+    reply = "📚 Study 25 min. Break 5 min. Repeat. Discipline wins.";
+  } 
+  else if (text.includes("tired")) {
+    reply = "😴 Rest 10 min, not 2 hours. Then get back to work.";
+  } 
+  else {
+    const randomReplies = [
+      "🔥 Discipline > Motivation. Show up anyway.",
+      "🚀 Start before you're ready.",
+      "⏳ Small steps daily = Big success.",
+      "🧠 Focus is a skill. Train it.",
+      "⚔️ Do hard things. That's growth."
+    ];
+
+    reply = randomReplies[Math.floor(Math.random() * randomReplies.length)];
+  }
+
+  res.json({ reply });
 });
 
-app.listen(5000, () => {
-  console.log("✅ Server running on http://localhost:5000");
+// ✅ Render compatible port
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
