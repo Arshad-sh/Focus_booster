@@ -16,8 +16,8 @@ export default function AICoach() {
     setResponse("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/ai", {
-        method: "POST",
+          const res = await fetch("https://focus-booster-api.onrender.com/api/ai", {
+          method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
